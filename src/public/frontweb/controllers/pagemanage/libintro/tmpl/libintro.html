@@ -1,0 +1,21 @@
+<div class="page-inner">
+    <form name="createForm" novalidate>
+        <div class="page-head">
+            <button class="btn btn-primary" ng-disabled="!canCreate" ng-click="saveForm()"><i class="icon-aw-zdi"></i> {{"cn.action.save"|translate}}</button>
+            <div class="upload-file upload-inline">
+                <span class="btn-file">
+                    <input type="file" ng-model="file" name="file" class="file" ng-change="change($event)" onchange="angular.element(this).scope().fileChanged(this)" />
+                    <button class="btn btn-info"><i class="icon-aw-dr"></i> {{"cn.action.import"|translate}}</button>
+                </span>
+            </div>
+            <p class="red" ng-if="imgChecked">{{"cn.errors.uploadmd"|translate}}</p>
+        </div>
+        
+        <div ng-if="showMarkdown">
+            <markdown-editor key="chapter" change="markdownChange(context)" current="currentEditor" data="docData" edit="0"></markdown-editor>
+        </div>
+        <div class="red" ng-if="markdownChecked">
+            <span>{{"cn.scintro.checkInfo.markdown"|translate}}</span>
+        </div>
+    </form>
+</div>

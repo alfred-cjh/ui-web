@@ -1,0 +1,18 @@
+[ChangeMe] One-line brief messages within 79 characters about current change!!!
+
+
+
+[ChangeMe] Multi-line detailed descriptions about this change
+
+1. What?
+
+2. Why?
+
+3. How?
+
+
+
+Implements: <id or jira link of blueprint>
+Closes-Bug: <id or jira link of bug>
+Depends-On: <gerrit link of commit which this commit depends on>
+Needs-By: <gerrit link of commit which depends on this commit>

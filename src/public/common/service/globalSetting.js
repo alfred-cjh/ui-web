@@ -1,0 +1,85 @@
+var globalSettingModule = angular.module("globalSettingModule", []);
+
+globalSettingModule.service("globalMenuModule", [function() {
+    var GLOBALDATA = {
+        ADMIN_MENU:[
+            {
+                keywords:"code",
+                text:"规范",
+                href:"",
+                active:"code",
+                icon:"icon-aw-gk0",
+                child:[
+                    {
+                       keywords:"codedev",
+                        text:"业务开发指导",
+                        href:"#/code/codedev",
+                        active:"codedev",
+                        child:[] 
+                    }
+                    /*{
+                        keywords:"codespec",
+                        text:"编码规范",
+                        href:"#/code/codespec",
+                        active:"codespec",
+                        child:[] 
+                    }*/
+                ]
+            },
+            {
+                keywords:"component",
+                text:"常用组件",
+                href:"",
+                active:"component",
+                icon:"icon-aw-wdgd",
+                child:[
+                    /*{
+                        keywords:"table",
+                        text:"表格",
+                        href:"#/component/table",
+                        active:"carousel",
+                    },
+                    {
+                        keywords:"modal",
+                        text:"模态框",
+                        href:"#/component/modal",
+                        active:"modal",
+                    },
+                    {
+                        keywords:"notification",
+                        text:"通知提醒框",
+                        href:"#/component/notification",
+                        active:"notification",
+                    },
+                    {
+                        keywords:"delete",
+                        text:"删除类提示框",
+                        href:"#/component/delete",
+                        active:"delete",
+                    },
+                    {
+                        keywords:"timepick",
+                        text:"时间控件",
+                        href:"#/component/timepick",
+                        active:"timepick",
+                    },
+                    {
+                        keywords:"piechart",
+                        text:"图表类",
+                        href:"#/component/piechart",
+                        active:"piechart",
+                    },*/
+                    {
+                        keywords:"pagination",
+                        text:"分页",
+                        href:"#/component/pagination",
+                        active:"pagination",
+                    }
+                    
+                ]
+            }
+        ]
+    };
+    return GLOBALDATA;
+}])
+export default globalSettingModule.name;

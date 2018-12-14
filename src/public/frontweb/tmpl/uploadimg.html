@@ -1,0 +1,71 @@
+    <div class="modal-common">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="$dismiss()">×</button>
+            <h3 class="modal-title  clearfix">{{TITLE}}</h3>
+        </div>
+        <div class="modal-body">
+            <form name="uploadimgform" novalidate>
+                <div class="control-group">
+                    <label class="control-label">
+                      <span class="red">*</span>{{'cn.pathlist.model.pic'|translate}}：
+                    </label>
+                    <div class="controls">
+                        <div class="upload-file">
+                            <div class="input-group">
+                              <input type="text" class="form-control" readonly ng-model="filePath" placeholder="{{'cn.pathlist.placeholder.chooseImg'|translate}}">
+                              <span class="btn-file">
+                                <input type="file" accept="image/png,image/gif,image/jpeg" ng-model="file" name="file" class="file" ng-change="change($event)" onchange="angular.element(this).scope().fileChanged(this)" />
+                                <button class="btn btn-primary">{{'cn.pathlist.model.chooseimg'|translate}}</button>
+                              </span>
+                            </div>
+                        </div>
+                        <span class="error" ng-if="imgChecked&&FormValid">{{'cn.errors.required'|translate}}</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                      <span class="red">*</span>{{'cn.pathlist.model.preview'|translate}}：
+                    </label>
+                    <div class="controls">
+                        <div class="img-preview" ng-if="!imgChecked||imgUrl">
+                            <img ng-src="{{imgUrl}}" id="imgContent">
+                        </div>
+                        <span ng-if="imgChecked&&!imgUrl" class="val">{{'cn.pathlist.model.noImg'|translate}}</span>
+                        <span class="img-tips">{{helpMessage}}</span>
+                    </div>
+                </div>
+                <div class="control-group" ng-if="showDecr">
+                    <label class="control-label">
+                      <span class="red">*</span>{{'cn.platform.model.decr'|translate}}：
+                    </label>
+                    <div class="controls">
+                        <textarea class="form-controls" ng-model="dataForm.description" name="decr" placeholder="{{'cn.courselist.placeholder.decr'|translate}}" ng-maxlength="100" required>
+                        </textarea>
+                        <div class="error" ng-messages="(FormValid ||uploadimgform.decr.$dirty) && uploadimgform.decr.$error">
+                            <span class="error" ng-message="maxlength">{{'cn.errors.maxlength100'|translate}}</span>
+                            <span class="error" ng-message="required">{{'cn.errors.required'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group" ng-if="showNum">
+                    <label class="control-label">
+                      <span class="red">*</span>{{'cn.platform.model.sortnum'|translate}}：
+                    </label>
+                    <div class="controls">
+                        <input class="form-controls" name="sort" ng-model="dataForm.num" num-max="numMax" ng-change="changeName()" placeholder="{{'cn.platform.placeholder.sortnum'|translate}}"
+                             required />
+                        <div class="error" ng-messages="(FormValid ||uploadimgform.sort.$dirty) && uploadimgform.sort.$error">
+                            <form-validate num="numMax"></form-validate>
+                        </div>
+                        <div class="error" ng-if="hadSameName">
+                            <span class="error">{{'cn.platform.checkInfo.sameSort'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" ng-disabled="!canClick" ng-click="upload(uploadimgform)">{{'cn.action.ok'|translate}}</button>
+            <button type="button" class="btn btn-default" ng-click="$dismiss()">{{'cn.action.cancel'|translate}}</button>
+        </div>
+    </div>

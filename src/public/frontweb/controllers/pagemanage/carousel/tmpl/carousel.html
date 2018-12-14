@@ -1,0 +1,26 @@
+<div class="page-inner page-carousel">
+    <div class="page-head">
+        <h5 class="text-title">{{"cn.carousel.name"|translate}}</h5>
+        <button class="btn btn-primary" ng-disabled="!canCreate" ng-click="createItem('carouselcreate')"><i class="icon-aw-add-to2"></i> {{"cn.action.create"|translate}}</button>
+    </div>
+    <div class="box">
+      <ul class="img-list">
+          <li ng-repeat="item in imgList" class="col-4">
+              <div class="inner">
+                  <div class="img-box">
+                      <img ng-src="{{item.url}}" alt="" title=""/>
+                      <div class="btn-item">
+                          <button class="btn btn-primary"  ng-click="createItem('carouseledit',item)">{{"cn.action.edit"|translate}}</button>
+                          <button class="btn btn-info"  ng-click="deleteItem(item)">{{"cn.action.del"|translate}}</button>
+                      </div>
+                  </div>
+                  <div class="text-box">
+                      {{item.num}}
+                  </div>
+              </div>
+          </li>
+      </ul>  
+    </div>
+</div>
+
+
