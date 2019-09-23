@@ -1,21 +1,31 @@
 @charset "utf-8";
 
 /* less引入 */
-@import "aw-font/css/aw-icon.css";
+//icon&reset
+@import "./aw-font/iconfont.css";
 @import "variabled.less";
 @import "reset.less";
-@import "global.less";
 
+//基类
+@import "module-tools-class.less";
+//ui component
+@import "module-animate.less";
+@import '../../node_modules/element-ui/lib/theme-chalk/index.css';
 @import "module-layout.less";
 @import "module-btn.less";
 @import "module-alert.less";
 @import "module-table.less";
 @import "module-checkbox&radio.less";
-@import "module-progress.less";
-@import "base.less";
-@import "login.less";
-@import "media.less";
-@import "hostmanage.less";
-@import "trainmanage.less";
-@import "admanage.less";
-@import "datasetmanage.less";
+@import "module-tab.less";
+
+@import "module-dialog.less";
+@import "module-pagination.less";
+@import "module-form.less";
+@import "module-detail.less";
+@import "module-side-menu.less";
+@import "module-step-to.less";
+
+
+
+//业务代码
+@import "global.less";

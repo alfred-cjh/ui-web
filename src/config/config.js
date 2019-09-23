@@ -1,8 +1,8 @@
 //API SOURCE
 window.GLOBALCONFIG = {
     APIHOST:{
-        "AILAB":"http://110.40.14.101:8093/ailab-manager",
-        "AILABIMG":"http://110.40.14.101:8093"
+        "AILAB":"@TOMCAT_PROXY@://@TOMCAT_IP@:@TOMCAT_PORT@/ailab-manager",
+        "AILABIMG":"@TOMCAT_PROXY@://@TOMCAT_IP@:@TOMCAT_PORT@"
     }
 };
 
@@ -32,17 +32,17 @@ if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0"){
         if(config){
             var js,css;
             if(config.getAttribute("data-css")){
-            css = config.getAttribute("data-css").replace(/^\s+|\s+$/g, "").split(/\s+/).map(function(i){
-                return "<link rel=\"stylesheet\" href=\"" + STATIC_URL + i + "\">";
-            });
-            document.write(css.join(""));
-        }
+                css = config.getAttribute("data-css").replace(/^\s+|\s+$/g, "").split(/\s+/).map(function(i){
+                    return "<link rel=\"stylesheet\" href=\"" + STATIC_URL + i + "\">";
+                });
+                document.write(css.join(""));
+            }
             if(config.getAttribute("data-js")){
-            js = config.getAttribute("data-js").replace(/^\s+|\s+$/g, "").split(/\s+/).map(function(i){
-                return "<script src=\"" + STATIC_URL + i + "\"></" + "script>";
-            });
-            document.write(js.join(""));
-        }
+                js = config.getAttribute("data-js").replace(/^\s+|\s+$/g, "").split(/\s+/).map(function(i){
+                    return "<script src=\"" + STATIC_URL + i + "\"></" + "script>";
+                });
+                document.write(js.join(""));
+            }
         }
     })();
 }

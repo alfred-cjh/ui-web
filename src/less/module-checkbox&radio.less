@@ -6,7 +6,7 @@
     margin: 0;
     position: relative;
     height: 20px;
-    label {
+    label,.label {
         display: inline-block;
         cursor: pointer;
         font-weight: normal;
@@ -17,7 +17,7 @@
         margin-right: 0px;
         i, .iconfont {
             font-size: @panelFontSize;
-            font-family: "fontello";
+            font-family: "iconfont";
             width: 20px;
             height: 20px;
             font-style: normal;
@@ -42,16 +42,16 @@
                 margin-right: 2px;
                 float: left;
                 &:before {
-                    content: '\e843';
+                    content: '\e8b5';
                     color: @checkbox;
                 }
             }
             &:checked  + i:before {
-                content: "\e80f";
+                content: "\e825";
                 color: @checkbox-checked;
             }
             &:indeterminate + i:before {
-                content: '\E861';
+                content: '\E6b0';
                 color: @blueDark;
             }
             &[disabled] + i{
@@ -95,6 +95,19 @@
                 }
             }
         }
+    }
+    .label{
+        input[type="checkbox"] {
+            width:20px;
+            height:20px;
+            position:absolute;
+            right:0;
+            top:0;
+            opacity:0;
+            z-index:1000;
+            left:auto;
+        }
+        line-height:30px;
     }
     &.switch-btn{
         display: inline-block;
@@ -168,3 +181,89 @@
         }
     }
 }
+.el-radio{
+    line-height:32px;
+    .el-radio__input{
+        .el-radio__inner{
+            width:16px;
+            height:16px;
+            border:2px solid #c2d3eb;
+        }
+        &.is-checked{
+            .el-radio__inner{
+                border-color:#4e80f5;
+                background:#fff;
+                &:after{
+                    width: 6px;
+                    height: 6px;
+                    background-color: #4e80f5;
+                }
+            }
+            .el-radio__label{
+                color:#4e80f5;
+            }
+        }
+    }
+    .el-radio__label{
+        //color:#4e80f5;
+    }
+    &.is-checked{
+        .el-radio__label{
+            color:#4e80f5;
+        }
+    }
+}
+.el-checkbox{
+    .el-checkbox__input{
+        .el-checkbox__inner{
+            border:2px solid #c2d3eb;
+            border-radius:2px;
+            width:16px;
+            height:16px;
+            &:hover{
+                border:2px solid #c2d3eb;
+            }
+        }
+        &.is-checked{
+            .el-checkbox__inner{
+                border-color:#4e80f5;
+                background:#fff;
+                &:after{
+                    border:2px solid #4e80f5;
+                    border-left: 0;
+                    border-top: 0;
+                    height: 7px;
+                    left: 4px;
+                    top:1px;
+                    width:3px;
+                }
+            }
+            &.is-disabled{
+                .el-checkbox__inner{
+                    &:after{
+                        border-color:#999;
+                    }
+                }
+            }
+        }
+        &.is-disabled{
+            .el-checkbox__inner{
+                border-color:#999;
+            }
+        }
+        &.is-indeterminate{
+            .el-checkbox__inner{
+                border-color:#4e80f5;
+                background:#fff;
+                &:before{
+                    background:#4e80f5;
+                    transform: none;
+                    margin: 0 3px;
+                }
+            }
+        }
+    }
+    
+}
+
+

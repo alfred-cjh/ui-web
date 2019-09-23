@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+
+.control-group:before,
+.control-group:after{
+    content: "";
+    display: table;
+}
+.control-group:after{
+	clear: both;
+	overflow: hidden;
+}
+.ip-cidr{
+	.form-controls{
+		width:17.5%;
+		float:left;
+	}
+	span{
+		width:3%;
+		text-align:center;
+		float:left;
+		line-height:32px;
+	}
+}
+
+.form-control,
+.form-controls,
+input[type="text"],
+input[type="password"] {
+    font-size: @moreFontSize;
+    width: 100%;
+    height: @inputHeight;
+    line-height: @inputLineHeight;
+    padding: 0 10px;
+    border: 1px solid @inputBorder;
+    font-weight: normal;
+    background: @inputBackground;
+    color: @inputColor;
+    border-radius: @borderRadius;
+    box-shadow: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    &.error {
+        border: 1px solid @inputErrorBorder;
+        color: @inputErrorColor;
+    }
+    &:focus {
+        border-color: @inputBorderFocus;
+        box-shadow: none;
+        outline: 0 none;
+    }
+    &::-webkit-input-placeholder {
+        color: @lightgrey;
+    }
+    &.input-mini {
+        width: 100px;
+    }
+    &.input-sm {
+        width: 200px;
+    }
+    &.input-lg {
+        width: 500px;
+    }
+}
+
+textarea.form-controls {
+    height: 90px;
+    resize: none;
+    line-height: 20px;
+    padding: 8px 10px;
+    vertical-align: top;
+    &.min {
+        height: 60px;
+    }
+}
+.error{
+    color: @red;
+    line-height: 1.5;
+    font-size: @moreFontSize - 2;
+}
+.control-group {
+    margin-bottom: 10px;
+    &.no-margin {
+        margin-bottom: 0;
+    }
+    .control-label {
+        float: left;
+        width: 17%;
+        margin-bottom: 0;
+        line-height: @inputHeight;
+        text-align: right;
+        font-weight: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+        &.font-weight-700 {
+            font-weight: 700;
+        } //overflow: hidden;
+    }
+    .controls {
+        position: relative;
+        float: left;
+        padding-left: 10px;
+        width: 83%;
+        .controls-radio-checkbox{
+            padding-top:7px;
+        }
+        .error {
+            color: @red;
+            line-height: 1.5;
+            font-size: @moreFontSize - 2;
+        }
+        .tips {
+            color: @red;
+            a {
+                font-style: italic;
+                color: @red;
+            }
+        }
+        >.val {
+            line-height: @inputLineHeight;
+        }
+        .des-tip {
+            font-size: 12px;
+            color: #999;
+            border: 0;
+        }
+    }
+}

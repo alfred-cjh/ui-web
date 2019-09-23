@@ -208,7 +208,8 @@ input[type="submit"] {
 }
 
 button[disabled],button.disabled,
-html input[disabled] {
+html input[disabled],input[readonly],
+html .el-input.is-disabled .el-input__inner{
 	cursor: default;
 	cursor: not-allowed;
 	background: #fafafa;

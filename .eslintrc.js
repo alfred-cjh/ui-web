@@ -12,22 +12,26 @@ module.exports = {
         "$":true,
         "_IP":true,
         "GLOBALCONFIG":true,
-        "AreaPanelDefault":true,
         "go":true
     },
     //"extends": "eslint:recommended",
     "parserOptions": {
+        "parser": 'babel-eslint',
         "sourceType": "module"
     },
+    "plugins": [
+        'vue'
+    ],
+    "extends": ["plugin:vue/base"],
     "rules": {
-        // "no-console":"off",
-        // "no-dupe-keys":["warn"],
-        // "no-redeclare":['warn'],
-        // "no-unused-vars":['warn'],
-        // "indent": [
-        //     "warn",
-        //     4
-        // ],
+        "no-console":"off",
+        "no-dupe-keys":["warn"],
+        "no-redeclare":['warn'],
+        "no-unused-vars":['warn'],
+        "indent": [
+            "warn",
+            4
+        ],
         // "linebreak-style": [
         //     "error",
         //     "unix"

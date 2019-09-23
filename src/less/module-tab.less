@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/* tab */
+.el-tabs--card{
+    &.el-tabs--top{
+        .el-tabs__header{
+            border-bottom: 1px solid #c2d3eb;
+            padding-left:30px;
+            .el-tabs__nav{
+                border: 0 none;
+                border-radius:0;
+            }
+        }
+        .el-tabs__item{
+            color:#999;
+            height:30px;
+            line-height:30px;
+            border: 1px solid #e5e5e5;
+            border-left:0 none;
+            border-bottom:0 none;
+            &.is-active{
+                color:#51a3ff;
+                border:1px solid #c2d3eb;
+                border-bottom:1px solid #fff;
+                margin-left:-1px;
+                &:first-child{
+                    margin-left:0px;
+                    border-left:1px solid #c2d3eb;
+
+                }
+            }
+            &.is-disabled{
+                cursor:not-allowed;
+            }
+            &:first-child{
+                border-left: 1px solid #e5e5e5;
+            }
+        }
+    }
+} 

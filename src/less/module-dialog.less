@@ -1,0 +1,258 @@
+@charset "utf-8";
+/**
+ * modal style
+ */
+
+ .normal-dialog{width:700px}
+ .small-dialog{
+    width:500px;
+    .delete-text{
+        text-align: center;
+        display: block;
+        font-size: 16px;
+        padding: 40px 0;
+        font-weight: 700;
+        color: #F39C12;
+    }
+}
+.large-dialog{width:900px}
+.el-dialog{
+    .el-dialog__footer{
+        background:@modalFooterBg;
+        border-top:1px solid @modalFooterBorderColor;
+        padding:20px;
+    }
+    .el-dialog__header{
+        border-bottom:1px solid @modalHeaderBorderColor;
+        margin:0 20px;
+    }
+    .el-dialog__title{
+        font-weight: bold;
+        font-size:@modalHeaderFontSize;
+        color:@modalHeaderColor;
+    }
+    &.delete-dialog{
+        .el-dialog__header{
+            border-bottom:0 none;
+            margin:0;
+        }
+        .el-dialog__body{
+            text-align:center;
+            min-height:150px;
+            font-size:@modalDeleteFontSize;
+			color:@modalDeleteColor;
+			span{
+				position: absolute;
+				left:50%;
+				top: 43%;
+				-webkit-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}	
+        }
+        .el-dialog__footer{
+            background:@modalDeleteFooterBg;
+            padding:15px 20px;
+            margin:0 20px;
+        }
+	}
+	&.step-dialog{
+		.el-dialog__header{
+            border-bottom:0 none;
+			margin:0;
+			.el-dialog__headerbtn{
+				z-index:2;
+			}
+		}
+		.el-dialog__body{
+			margin-top:-30px;
+			padding:0px;
+		}
+		.modal-header{
+			background: #f6f9ff;
+			height: 80px;
+			padding:20px 30px;
+		}
+		.modal-title{
+			float: left;
+			margin-top: 28px;
+			margin-left: 40px;
+			height:auto;
+			line-height:20px;
+			font-size:16px;
+		}
+		.modal-body{
+			padding:25px 30px;
+		}
+		.steps-sytle-ver{
+			width: 400px;
+			float: left;
+			margin-left: 70px;
+			margin-top: 5px;
+		}
+	}
+}
+.el-notification{
+	border-radius:2px;
+	padding:12px 34px 11px 20px;
+	width:300px;
+	.el-notification__group{
+		margin:0;
+	}
+	.el-notification__icon{
+		display:none;
+	}
+	.el-notification__content{
+		margin:0;
+	}
+	.el-notification__closeBtn{
+		top:14px;
+	}
+	ul{
+		li{
+			word-break: break-all;
+		}
+	}
+    &.error{
+        border:1px solid @dangerTipBorder;
+        background:@dangerTipBg;
+        .el-notification__content{
+            color:@dangerTipColor;
+        }
+        .el-notification__closeBtn{
+            color:@dangerTipColor;
+        }
+        .el-notification__title{
+            color:@dangerTipColor;
+        }
+    }
+    &.success{
+        border:1px solid @successTipBorder;
+        background:@successTipBg;
+        .el-notification__content{
+            color:@successTipColor;
+        }
+        .el-notification__closeBtn{
+            color:@successTipColor;
+        }
+        .el-notification__title{
+            color:@successTipColor;
+        }
+    }
+}
+.alert{
+	padding: 8px 20px;
+	border-radius: @borderRadius;
+	background: none;
+	margin-bottom: 15px;
+	border:1px solid;
+	position: relative;
+	font-size:14px;
+	&.alert-no-close.multi-mes{
+		padding: 7px 10px;
+	}
+	&.multi-mes{
+	   margin:0 auto 15px;
+	   padding: 5px 24px 5px 20px;
+       .close{
+          top:7px;
+       }
+       .alert-content{
+       	.alert-text{
+       		line-height:22px;
+       	}
+       }
+    }
+    &.long-tips{
+	   margin:0 auto 10px;
+       .close{
+          top:8px;
+       }
+    }
+	.close, .alert-close{
+		position: absolute;
+		right: 10px;
+		top: 2px;
+		color: @color;
+		font-weight: normal;
+		opacity: .5;
+		filter: alpha(opacity=50);
+		text-shadow: 0 0px 0 @white;
+		background: none;
+		border:none;
+		padding: 0;
+		font-size:28px;
+	}
+	.alert-content {
+		.alert-text {
+			display: inline-block;
+			line-height: @btnLineHeight;
+		}
+		.alert-item {
+			display: inline-block;
+			float: right;
+			margin-right: 20px;
+		}
+	}
+	.btn-item{
+		border-top: solid 1px @borderColor;
+		padding: 15px 0 16px;
+		margin:0 20px;
+		text-align: center;
+		.btn{
+			margin: 0 5px;
+		}
+	}
+	&.alert-success{
+		color: @successTipColor;
+		background-color: @successTipBg;
+		border-color: @successTipBorder;
+		.close, .alert-close {
+			color: @successTipColor;
+		}
+	}
+	&.alert-building, &.alert-info{
+		color: @processTipColor;
+		background-color: @processTipBg;
+		border-color: @processTipBorder;
+		.close, .alert-close {
+			color: @processTipColor;
+		}
+    }
+    &.alert-gray-font{
+    	color: @greyFont;
+		background-color: @processTipBg;
+		border-color: @processTipBorder;
+		.close, .alert-close {
+			color: @greyFont;
+		}
+    }
+    /* &.alert-info{
+    		font-size: 12px;
+    } */
+	&.alert-warning{
+		color: @warningTipColor;
+		background-color: @warningTipBg;
+		border-color: @warningTipBorder;
+		.close, .alert-close {
+			color: @warningTipColor;
+		}
+	}
+	&.alert-tips{
+		color: @greyFont;
+		background-color: #f6f9ff;
+		border-color: #d0d5e0;
+		.close, .alert-close {
+			color: @greyFont;
+		}
+	}
+	&.alert-danger, &.alert-error{
+		color: @dangerTipColor;
+		background-color: @dangerTipBg;
+		border-color: @dangerTipBorder;
+		.close, .alert-close {
+			color: @dangerTipColor;
+		}
+	}
+} 

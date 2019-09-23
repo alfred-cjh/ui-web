@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+.steps-sytle-ver {
+    &.steps-sytle-ver-two {
+        .step-start,
+        .step-end {
+            width: 50%;
+        }
+    }
+
+    li {
+        width: 50%;
+        text-align: center;
+        position: relative;
+        float: left;
+        .inner {
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            span {
+                display: block;
+                text-align: center;
+                color: #999;
+                margin-bottom: 4px;
+            }
+            i {
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 50%;
+                background: #e5e5e5; //background: #51a3ff;
+                text-align: center; //color: #fff;
+                color: #999;
+                font-style: normal;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+            }
+            &:before {
+                content: "";
+                height: 6px;
+                width: 50%;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: 8px;
+                background: @grey;
+            }
+            &:after {
+                content: "";
+                height: 6px;
+                width: 50%;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: 8px;
+                background: @grey;
+            }
+        }
+
+        &.step-start {
+            width: 25%;
+            .inner {
+                text-align: left;
+                span {
+                    transform: translate(-50%, 0);
+                }
+                i {
+                    margin-left: -10px;
+                }
+                &:after {
+                    width: 100%;
+                    right: 0;
+                }
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    position: static;
+                    overflow: hidden;
+                }
+            }
+        }
+        &.step-end {
+            width: 25%;
+
+            .inner {
+                text-align: right;
+
+                span {
+                    transform: translate(50%, 0);
+                }
+
+                i {
+                    margin-right: -10px;
+                }
+
+                &:before {
+                    width: 100%;
+                    left: 0;
+                }
+
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    position: static;
+                    overflow: hidden;
+                }
+            }
+        }
+        &.active {
+            .inner {
+                span {
+                    color: @blue;
+                }
+
+                i {
+                    color: @white;
+                    background: @blue;
+                }
+
+                &:after {
+                    background: @blue;
+                }
+
+                &:before {
+                    background: @blue;
+                }
+            }
+        }
+    }
+}
+

@@ -7,132 +7,18 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="format-detection" content="telephone=no, email=no, adress=no" />
-  <title  ng-bind="pathTitle"></title>
-    <script src="/config/config.js" id="page-config" charset="UTF-8" data-js="
-    lodash/lodash.min.js
-    jquery/jquery.min.js
-    zrender/zrender.min.js
-    moment/min/moment.min.js
-    bootstrap/dist/js/bootstrap.min.js
-    bootstrap-datetime-picker/js/bootstrap-datetimepicker.js
-    bootstrap-datetime-picker/js/bootstrap-datetimepicker.zh-CN.js
-    angular/angular.min.js
-    angular-animate/angular-animate.min.js
-    angular-route/angular-route.min.js
-    angular-sanitize/angular-sanitize.min.js
-    angular-messages/angular-messages.min.js
-    angular-file-saver/dist/angular-file-saver.bundle.min.js
-    angular-translate/dist/angular-translate.min.js
-    angular-ui-bootstrap/dist/ui-bootstrap-tpls.js
-    angular-ui-tree/dist/angular-ui-tree.min.js
-    ng-table/dist/ng-table.min.js
-    ui-select/dist/select.min.js
-    bootstrap-daterangepicker/moment.js
-    bootstrap-daterangepicker/daterangepicker.js
-    echarts/echarts.min.js
-    editor/lib/codemirror/codemirror.min.js
-    editor/lib/codemirror/modes.min.js
-    editor/lib/codemirror/addons.min.js
-    editor/lib/marked.min.js
-    editor/lib/prettify.min.js
-    katex/dist/katex.min.js
-    editor/editormd.js
-    nicescroll/jquery.nicescroll.min.js
-    " data-css="
-    bootstrap/dist/css/bootstrap.min.css
-    bootstrap-datetime-picker/css/bootstrap-datetimepicker.min.css
-    angular/angular-csp.css
-    ui-select/dist/select.min.css
-    bootstrap-daterangepicker/daterangepicker.css
-    katex/dist/katex.min.css
-    editor/lib/codemirror/codemirror.min.css
-    editor/lib/codemirror/addon/dialog/dialog.css
-    editor/lib/codemirror/addon/search/matchesonscrollbar.css
-    editor/css/editormd.min.css
-    "></script>
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <title></title>
+  <link rel="stylesheet" href="/css/index.css">
+  <script src="/js/config.js" id="page-config" charset="UTF-8" data-js="
+  lodash/lodash.min.js
+  jquery/jquery.min.js
+  moment/min/moment.min.js"
+  data-css=""></script>
 </head>
-
-<body ng-controller="MainCtrl" class="layoutopen logined">
-  <header>
-    <div>
-      <div class="inner clearfix">
-        <div class="logo">
-          <a>&nbsp;&nbsp;</a>
-        </div>
-        <!-- <div class="pull-left back-to"><a href="/#/"><i class="icon-aw-mail-reply"></i>返回门户</a></div> -->
-        <ul class="user-mes-box clearfix">
-          <li class="admin-center-info" ng-if="checkLogin.checkAuthBackEnd()">
-            <a><span title='{{userName}}'>{{userName}}</span><i class="iconfont"></i></a>
-            <div class="dropdown-layer admin-center">
-              <ul class="admin-center-menu">
-                <li>
-                  <a ng-click="changPassword()"><i class="icon-aw-gear"></i>{{"cn.common.changePassword"|translate}}</a>
-                </li>
-                <li>
-                  <a ng-click="loginOut()"><i class="icon-aw-shut-down"></i>{{"cn.common.quit"|translate}}</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li ng-if="!checkLogin.checkAuthBackEnd()">
-            <a class="cursor-pointer" ng-click="userLogin('backend')">{{"cn.common.login"|translate}}</a>
-          </li>
-        </ul>
-        <!-- <div class="translate-select pull-right">
-          <ui-select ng-model="tran.selected" ng-change="tranSelect(tran.selected)">
-            <ui-select-match placeholder="{{$select.selected.text}}" title="{{$select.selected.text}}">{{$select.selected.text}}</ui-select-match>
-            <ui-select-choices repeat="item in trans.list | filter:{text:$select.search}">
-              <div ng-bind-html="item.text | highlight: $select.search"></div>
-            </ui-select-choices>
-          </ui-select>
-        </div> -->
-      </div>
-    </div>
-  </header>
-  <div class="main clearfix">
-    <aside toggle-nav>
-      <span class="toggle-icon">
-        <i class="icon-aw-angle-double-right"></i>
-      </span>
-      <!-- <h5 class="menu-title">{{'cn.menu.'+sideMenu.sideMentTitle | translate}}</h5> -->
-      
-      <ul class="menu-level-1">
-        <li ng-repeat="item in sideMenu.sideMenuList" ng-class="{'level2-active':sideMenu.activeSubMenu==item.keywords,'active':checkActive(item),'has-child':item.child.length>0}">
-          <a ng-href="{{item.href}}" ng-class="{'active':checkActive(item)}">
-            <span ng-click="sideMenu.activeSubMenu=item.keywords"><i class="{{item.icon}}"></i><b ng-bind="'cn.menu.'+item.keywords | translate"></b></span>
-            <i class="icon-arrow" ng-if="item.child.length>0" ng-click="sideMenu.activeSubMenu=item.keywords"></i>
-          </a>
-          <a ng-href="{{item.href}}" class="close-show-title" ng-if="item.child.length<1" ng-bind="'cn.menu.'+item.keywords | translate"></a>
-          <ul class="menu-level-2" ng-if="item.child.length>0">
-            <li ng-repeat="subItem in item.child">
-              <a ng-href="{{subItem.href}}" ng-class="{'sub-active':sideMenu.menuKeyword==subItem.active}">
-                <span><i class="pointer"></i>{{'cn.menu.'+subItem.keywords | translate}}</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </aside>
-    <div class="main-content">
-      <div class="main-top-box clearFix">
-        <h3 class="page-top-title" ng-bind="pathTitle"></h3>
-      </div>
-      <div ng-view></div>
-      <loading></loading>
-    </div>
-    <ui-alert></ui-alert>
-    <ui-bubble></ui-bubble>
+<body class="layoutopen">
+  <div id="app">
+    <router-view></router-view>
   </div>
-  <!-- <footer>
-    <div class="container">
-      <p class="copyright">Copyright  ©2012-2018  北京海云捷迅科技有限公司      联系电话：4000-365-805</p>
-    </div>
-  </footer> -->
-  <script src="../js/awui.js"></script>
-  <script src="../js/common.js"></script>
-  <script src="../js/index.js"></script>
+  <script src="/js/index.js"></script>
 </body>
-
 </html>
