@@ -3,7 +3,7 @@
   "name": "AILab",
   "version": "1.0.0",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-ui": "^2.6.1",
     "ip": "^1.1.5",
     "promise.prototype.finally": "^3.1.0",
